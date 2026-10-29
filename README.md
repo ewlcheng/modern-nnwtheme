@@ -1,7 +1,7 @@
 <!-- nnw-theme-identity:start -->
-# NetNewsWire Theme Template
+# Modern
 
-A starting point for making and publishing your own NetNewsWire theme.
+A NetNewsWire theme by [Edward Cheng](https://github.com/ewlcheng).
 <!-- nnw-theme-identity:end -->
 
 This repository is a GitHub template. You make one repository from it per theme,

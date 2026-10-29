@@ -3,13 +3,13 @@
 <plist version="1.0">
 <dict>
 	<key>ThemeIdentifier</key>
-	<string>com.example.starter</string>
+	<string>io.github.ewlcheng.modern</string>
 	<key>Name</key>
-	<string>Starter</string>
+	<string>Modern</string>
 	<key>CreatorHomePage</key>
-	<string>https://example.com</string>
+	<string>https://github.com/ewlcheng</string>
 	<key>CreatorName</key>
-	<string>Theme Author</string>
+	<string>Edward Cheng</string>
 	<key>Version</key>
 	<integer>1</integer>
 </dict>

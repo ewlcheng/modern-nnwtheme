@@ -645,7 +645,7 @@ a.footnote {
 body a.footnote,
 body a.footnote:visited,
 .newsfoot-footnote-popover + a.footnote:hover {
-	color: white;
+	color: var(--accent-color);
 }
 
 /* --- Theme (dark) --- */

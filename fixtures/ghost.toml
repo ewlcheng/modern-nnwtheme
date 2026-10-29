@@ -1,0 +1,118 @@
+# nnw-theme catalog fixture: ghost (catalog version 1)
+# Markup: Ghost Koenig editor cards, as sent in Ghost RSS content:encoded, captured 2026-09.
+# Text and links are synthetic; the structure, classes and attributes are real.
+# Exercises: a bare unsized lead image, wide/full image cards, gallery rows, bookmark,
+#   callout, button, call-to-action, toggle, video and embed cards, loading="lazy" images.
+# Refresh: npx nnw-theme@2 fixture add ghost --force
+
+byline = 'Rowan Ellery, Sam Okafor'
+date_long = 'September 28, 2026'
+date_medium = 'Sep 28, 2026'
+date_short = '9/28/26'
+dateline_style = 'articleDateline'
+datetime_long = 'September 28, 2026 at 9:00:00 AM'
+datetime_medium = 'Sep 28, 2026 at 9:00 AM'
+datetime_short = '9/28/26, 9:00 AM'
+feed_link = 'https://example.org/'
+feed_link_title = 'The Workbench Journal'
+preferred_link = 'https://example.org/notes-from-the-workbench/'
+time_long = '9:00:00 AM PDT'
+time_medium = '9:00:00 AM'
+time_short = '9:00 AM'
+title = 'Notes from the workbench: a season of small repairs'
+body = '''
+<img src="https://example.org/content/images/2026/09/workbench-lead.jpg" alt="Notes from the workbench: a season of small repairs"><p>Ghost’s RSS feed opens with the post’s feature image as a bare <code>img</code>, unsized and unwrapped, directly before the first paragraph. Everything after it is written by Ghost’s editor, which marks each rich block as a <code>kg-card</code>.</p>
+<p>An image card with a caption:</p>
+<figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://example.org/content/images/2026/09/bench-vise.jpg" class="kg-image" alt="A bench vise holding a strip of wood" loading="lazy" width="492" height="316"><figcaption><span style="white-space: pre-wrap;">A narrow image keeps its own size; the caption runs wider than the picture.</span></figcaption></figure>
+<p>A wide image card, meant to break out of the text column:</p>
+<figure class="kg-card kg-image-card kg-width-wide kg-card-hascaption"><img src="https://example.org/content/images/2026/09/shop-floor.jpg" class="kg-image" alt="The shop floor seen from the doorway" loading="lazy" width="2000" height="1125" srcset="https://example.org/content/images/size/w600/2026/09/shop-floor.jpg 600w, https://example.org/content/images/size/w1000/2026/09/shop-floor.jpg 1000w, https://example.org/content/images/size/w1600/2026/09/shop-floor.jpg 1600w, https://example.org/content/images/2026/09/shop-floor.jpg 2000w" sizes="(min-width: 1200px) 1200px"><figcaption><span style="white-space: pre-wrap;">The shop floor after the spring clean-out.</span></figcaption></figure>
+<p>A full-width image card, meant to span the whole window:</p>
+<figure class="kg-card kg-image-card kg-width-full"><img src="https://example.org/content/images/2026/09/lumber-rack.jpg" class="kg-image" alt="A rack of sorted lumber" loading="lazy" width="2400" height="900" srcset="https://example.org/content/images/size/w600/2026/09/lumber-rack.jpg 600w, https://example.org/content/images/size/w1000/2026/09/lumber-rack.jpg 1000w, https://example.org/content/images/size/w1600/2026/09/lumber-rack.jpg 1600w, https://example.org/content/images/size/w2400/2026/09/lumber-rack.jpg 2400w"></figure>
+<p>A YouTube embed. Ghost’s oEmbed markup sizes every one at 200×113:</p>
+<figure class="kg-card kg-embed-card"><iframe width="200" height="113" src="https://example.org/embed/sharpening-a-plane-iron?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen title="Sharpening a plane iron, start to finish"></iframe></figure>
+<p>Another embed, sized 560×316:</p>
+<figure class="kg-card kg-embed-card"><iframe src="https://example.org/talks/the-case-for-hand-tools" width="560" height="316" frameborder="0" scrolling="no" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></figure>
+<p>A bookmark card, a link preview; the feed drops its thumbnail and icon:</p>
+<figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://example.org/a-guide-to-winter-finishes/"><div class="kg-bookmark-content"><div class="kg-bookmark-title">A Guide to Winter Finishes &#x2022; The Workbench Journal</div><small><div class="kg-bookmark-description">Oils, waxes, and varnishes behave differently when the shop is cold. Here is what we use from November to March, and why each one earns its place.</div></small></div></a></figure>
+<p>Text between two bookmark cards.</p>
+<figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://example.org/the-long-bench/"><div class="kg-bookmark-content"><div class="kg-bookmark-title">The Long Bench</div><small><div class="kg-bookmark-description">Twelve feet of maple and three years of arguments about where it should go.</div></small></div></a></figure>
+<p>A toggle card:</p>
+<div class="kg-card kg-toggle-card" data-kg-toggle-state="close">
+            <div class="kg-toggle-heading">
+                <h4 class="kg-toggle-heading-text"><span style="white-space: pre-wrap;">What we bought this season (~&#x24;2,100)</span></h4>
+                <button class="kg-toggle-card-icon" aria-label="Expand toggle to read content">
+                    <svg id="Regular" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path class="cls-1" d="M23.25,7.311,12.53,18.03a.749.749,0,0,1-1.06,0L.75,7.311"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="kg-toggle-content"><ul><li value="1"><a href="https://example.org/tools/block-plane" target="_blank" rel="noopener noreferrer"><span style="white-space: pre-wrap;">Low-angle block plane</span></a><span style="white-space: pre-wrap;"> &#x2014; &#x24;180</span></li><li value="2"><a href="https://example.org/tools/marking-gauge" target="_blank" rel="noopener noreferrer"><span style="white-space: pre-wrap;">Wheel marking gauge</span></a><span style="white-space: pre-wrap;"> &#x2014; &#x24;45</span></li><li value="3"><a href="https://example.org/tools/dust-collector" target="_blank" rel="noopener noreferrer"><span style="white-space: pre-wrap;">Dust collector with a cyclone separator</span></a><span style="white-space: pre-wrap;"> &#x2014; &#x24;1,875</span></li></ul></div>
+        </div>
+<p>A callout card:</p>
+<div class="kg-card kg-callout-card kg-callout-card-grey"><div class="kg-callout-emoji">&#x1f4a1;</div><div class="kg-callout-text"><b><strong style="white-space: pre-wrap;">Have a repair story you would like us to feature? Send a few photos and a paragraph about what went wrong and how you fixed it; we read every one.</strong></b></div></div>
+<p>A minimal call-to-action card:</p>
+<div class="kg-card kg-cta-card kg-cta-bg-grey kg-cta-minimal    " data-layout="minimal">
+
+            <div class="kg-cta-content">
+
+
+                    <div class="kg-cta-content-inner">
+
+                        <div class="kg-cta-text">
+                            <p><span style="white-space: pre-wrap;">&#x1f4e2; The workshop schedule for next month is up. Sessions are small, so sign up early if you want a bench.</span></p>
+                        </div>
+
+
+                    </div>
+
+            </div>
+        </div>
+<p>A sponsored call-to-action card with an unsized image and a button:</p>
+<div class="kg-card kg-cta-card kg-cta-bg-yellow kg-cta-minimal  kg-cta-has-img  kg-cta-centered" data-layout="minimal">
+
+                <div class="kg-cta-sponsor-label-wrapper">
+                    <div class="kg-cta-sponsor-label">
+                        <b><strong style="white-space: pre-wrap;">from our friends at the Lumber Co-op</strong></b>
+                    </div>
+                </div>
+
+            <div class="kg-cta-content">
+
+                    <div class="kg-cta-image-container">
+                        <a href="https://example.org/co-op?ref=workbench"><img src="https://example.org/content/images/2026/01/co-op-logo.webp" alt="CTA Image" data-image-dimensions="240x240"></a>
+                    </div>
+
+
+                    <div class="kg-cta-content-inner">
+
+                        <div class="kg-cta-text">
+                            <p><span style="white-space: pre-wrap;">Looking for well-dried hardwood? </span><a href="https://example.org/co-op?ref=workbench" class="cta-link-color"><b><strong style="white-space: pre-wrap;">The Lumber Co-op</strong></b></a><span style="white-space: pre-wrap;"> is giving readers </span><b><strong style="white-space: pre-wrap;">10 percent</strong></b><span style="white-space: pre-wrap;"> off their first order this fall. </span></p>
+                        </div>
+
+
+                        <a href="https://example.org/co-op?ref=workbench" class="kg-cta-button " style="background-color: #000000; color: #FFFFFF;">
+                            BROWSE THE YARD
+                        </a>
+
+                    </div>
+
+            </div>
+        </div>
+<p>A button card:</p>
+<div class="kg-card kg-button-card kg-align-left"><a href="https://example.org/podcast/episode-12?t=2748" class="kg-btn kg-btn-accent">Shop Talk, Episode #12, 45:47</a></div>
+<p>A gallery card with two rows of lazy images:</p>
+<figure class="kg-card kg-gallery-card kg-width-wide"><div class="kg-gallery-container"><div class="kg-gallery-row"><div class="kg-gallery-image"><img src="https://example.org/content/images/2026/09/joint-1.png" width="934" height="1098" loading="lazy" alt="A dovetail joint" srcset="https://example.org/content/images/size/w600/2026/09/joint-1.png 600w, https://example.org/content/images/2026/09/joint-1.png 934w" sizes="(min-width: 720px) 720px"></div><div class="kg-gallery-image"><img src="https://example.org/content/images/2026/09/joint-2.png" width="1212" height="1050" loading="lazy" alt="A mortise and tenon" srcset="https://example.org/content/images/size/w600/2026/09/joint-2.png 600w, https://example.org/content/images/size/w1000/2026/09/joint-2.png 1000w, https://example.org/content/images/2026/09/joint-2.png 1212w" sizes="(min-width: 720px) 720px"></div></div><div class="kg-gallery-row"><div class="kg-gallery-image"><img src="https://example.org/content/images/2026/09/joint-3.png" width="1310" height="1208" loading="lazy" alt="A bridle joint" srcset="https://example.org/content/images/size/w600/2026/09/joint-3.png 600w, https://example.org/content/images/size/w1000/2026/09/joint-3.png 1000w, https://example.org/content/images/2026/09/joint-3.png 1310w" sizes="(min-width: 720px) 720px"></div><div class="kg-gallery-image"><img src="https://example.org/content/images/2026/09/joint-4.png" width="1084" height="1122" loading="lazy" alt="A half-lap joint" srcset="https://example.org/content/images/size/w600/2026/09/joint-4.png 600w, https://example.org/content/images/size/w1000/2026/09/joint-4.png 1000w, https://example.org/content/images/2026/09/joint-4.png 1084w" sizes="(min-width: 720px) 720px"></div><div class="kg-gallery-image"><img src="https://example.org/content/images/2026/09/joint-5.png" width="1200" height="800" loading="lazy" alt="A finger joint" srcset="https://example.org/content/images/size/w600/2026/09/joint-5.png 600w, https://example.org/content/images/size/w1000/2026/09/joint-5.png 1000w, https://example.org/content/images/2026/09/joint-5.png 1200w" sizes="(min-width: 720px) 720px"></div></div></div></figure>
+<p>A portrait video card:</p>
+<figure class="kg-card kg-video-card kg-width-regular" data-kg-thumbnail="https://example.org/content/media/2026/09/glue-up_thumb.jpg" data-kg-custom-thumbnail>
+            <div class="kg-video-container">
+                <video src="https://example.org/content/media/2026/09/glue-up.mp4" poster="https://example.org/content/media/2026/09/glue-up_thumb.jpg" width="1080" height="1920" playsinline preload="metadata" controls></video>
+
+
+            </div>
+
+        </figure>
+<p>A social embed, without its loader script:</p>
+<figure class="kg-card kg-embed-card"><blockquote class="twitter-tweet"><p lang="en" dir="ltr">finished the long bench today. twelve feet, zero regrets &#x1fab5; <a href="https://example.org/s/bench-photo">example.org/s/bench-photo</a></p>&#x2014; Workbench Journal (@workbench) <a href="https://example.org/workbench/status/2100349174529265967">September 16, 2026</a></blockquote></figure>
+<p>The alternative blockquote style:</p>
+<blockquote class="kg-blockquote-alt">&#x201c;Measure twice, cut once, and then measure again out of habit.&#x201d; &#x2014; <a style="font-weight:300;color: var(--color-secondary-text);" href="https://example.org/sayings/" rel="noopener noreferrer" target="_blank">Shop saying</a></blockquote>
+<p>That is the whole season. Next month: the finishing room.</p>'''
