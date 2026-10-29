@@ -1,261 +1,758 @@
-/* Start here: these variables define most of the theme's visual character. */
+/* ==========================================================================
+   1. Theme variables
+   ========================================================================== */
+
 :root {
-  color-scheme: light dark;
-  --canvas: #f7f5f0;
-  --text: #272622;
-  --muted: #6e6a61;
-  --accent: #2f6655;
-  --rule: #d8d2c6;
-  --code-surface: #ebe7de;
-  --measure: 42rem;
-  --body-font: ui-serif, Georgia, Cambria, "Times New Roman", serif;
-  --display-font: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
-  --code-font: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+	color-scheme: light dark;
+
+	--body-background: #FFFEFB;
+	--body-color: #666;
+	--body-code-color: #666;
+	--header-color: rgba(0, 0, 0, 0.3);
+	--header-table-border-color: rgba(0, 0, 0, 0.1);
+	--system-message-color: #cbcbcb;
+	--feedlink-color: rgba(255, 0, 0, 0.6);
+	--article-title-color: #333;
+	--article-title-secondary-color: #8c9194;
+	--article-date-color: rgba(0, 0, 0, 0.3);
+	--table-outer-border: #e0e0e0;
+	--table-cell-border-color: #e7e7e7;
+	--quote-background: #F8F5F0;
+	--quote-color: #626262;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --canvas: #1e201e;
-    --text: #ece9e1;
-    --muted: #aaa69d;
-    --accent: #8fc9b4;
-    --rule: #41453f;
-    --code-surface: #292c29;
-  }
+	:root {
+		--body-background: #27251E;
+		--body-color: #ffffff;
+		--body-code-color: #b2b2b2;
+		--header-color: rgba(94, 158, 244, 1);
+		--system-message-color: #5f5f5f;
+		--feedlink-color: rgba(94, 158, 244, 1);
+		--article-title-color: #ffffff;
+		--article-date-color: rgba(255, 255, 255, 0.5);
+		--table-outer-border: #e0e0e0;
+		--table-cell-border-color: dimgray;
+		--quote-background: #363532;
+		--quote-color: rgba(195, 195, 195, 1);
+	}
 }
 
-/* iOS replaces this with the reader's Dynamic Type size. macOS leaves the macro
-   literal, so the declaration is invalid there and is dropped — no platform query
-   needed, and none wanted: desktop WebKit lacks -webkit-touch-callout, so such a
-   query previews false. See `npx nnw-theme@2 guide theme-format`. */
-:root {
-  font-size: [[font-size]]px;
-  -webkit-text-size-adjust: none;
-}
 
-/* macOS applies one of these to the text_size_class element; inert on iOS.
-   NetNewsWire emits the capital-L spellings, its own themes select lowercase. */
-.smallText {
-  font-size: 14px;
-}
-
-.mediumText {
-  font-size: 16px;
-}
-
-.largeText {
-  font-size: 18px;
-}
-
-.xlargeText,
-.xLargeText {
-  font-size: 20px;
-}
-
-.xxlargeText,
-.xxLargeText {
-  font-size: 22px;
-}
-
-html {
-  background: var(--canvas);
-  color: var(--text);
-  font-family: var(--body-font);
-  line-height: 1.62;
-  overflow-wrap: break-word;
-  text-rendering: optimizeLegibility;
-}
+/* ==========================================================================
+   2. Base
+   ========================================================================== */
 
 body {
-  margin: 0;
-  padding: clamp(1.25rem, 4vw, 3.5rem);
-}
-
-.article {
-  margin: 0 auto;
-  max-width: var(--measure);
-}
-
-.article-header {
-  border-bottom: 1px solid var(--rule);
-  margin-bottom: 2rem;
-  padding-bottom: 1.4rem;
-}
-
-.feed {
-  align-items: center;
-  color: var(--muted);
-  display: inline-flex;
-  font-family: var(--display-font);
-  font-size: 0.82em;
-  font-weight: 650;
-  gap: 0.55rem;
-  letter-spacing: 0.035em;
-  text-decoration: none;
-  text-transform: uppercase;
-}
-
-.feed-icon {
-  border-radius: 22%;
-  height: 1.6rem;
-  width: 1.6rem;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: var(--display-font);
-  line-height: 1.14;
-  text-wrap: balance;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 44em;
+	word-wrap: break-word;
+	background: var(--body-background);
+	color: var(--body-color);
 }
 
 h1 {
-  font-size: clamp(2rem, 8vw, 3.75rem);
-  letter-spacing: -0.035em;
-  margin: 1rem 0 0.75rem;
-}
-
-h1 a {
-  color: inherit;
-  text-decoration: none;
-}
-
-h2 {
-  font-size: 1.55em;
-  margin-top: 2.1em;
-}
-
-h3 {
-  font-size: 1.2em;
-  margin-top: 1.8em;
-}
-
-.byline,
-.dateline {
-  color: var(--muted);
-  display: inline;
-  font-family: var(--display-font);
-  font-size: 0.9em;
-}
-
-.dateline::before {
-  content: " · ";
+	line-height: 1.15em;
+	font-weight: bold;
+	padding-bottom: 0;
+	margin-bottom: 5px;
 }
 
 a {
-  color: var(--accent);
-  text-decoration-thickness: 0.08em;
-  text-underline-offset: 0.14em;
+	text-decoration: none;
+	font-weight: bold;
 }
 
 a:hover {
-  text-decoration-thickness: 0.13em;
+	text-decoration: underline;
 }
 
-p,
-ul,
-ol,
-blockquote,
-pre,
-table,
-figure {
-  margin-block: 1.25em;
+sup {
+	vertical-align: top;
+	position: relative;
+	bottom: 0.2rem;
 }
 
-blockquote {
-  border-left: 0.2rem solid var(--accent);
-  color: var(--muted);
-  font-size: 1.05em;
-  margin-inline: 0;
-  padding-left: 1.25rem;
+sub {
+	vertical-align: bottom;
+	position: relative;
+	top: 0.2rem;
 }
+
+hr {
+	border: none;
+	height: 1px;
+	margin-top: 1em;
+}
+
+.svg-inline--fa {
+	height: 1em;
+	width: 1em;
+	vertical-align: middle;
+}
+
+.systemMessage {
+	position: absolute;
+	top: 45%;
+	left: 50%;
+	transform: translateX(-55%) translateY(-50%);
+	-webkit-user-select: none;
+	cursor: default;
+}
+
+body > .systemMessage {
+	color: var(--system-message-color);
+}
+
+
+/* ==========================================================================
+   3. Header
+   ========================================================================== */
+
+.headerTable {
+	width: 100%;
+	height: 68px;
+	border-bottom: 1px solid var(--header-table-border-color);
+	color: var(--header-color);
+}
+
+body .header {
+	color: var(--header-color);
+}
+
+body .header a:link,
+body .header a:visited {
+	color: var(--header-color);
+}
+
+
+/* ==========================================================================
+   4. Feed header & feed link
+   ========================================================================== */
+
+.feedHeader {
+	margin: 0 auto 40px;
+	text-align: center;
+}
+
+.feedHeader img {
+	display: block;
+}
+
+.feedlink {
+	font-weight: bold;
+}
+
+.feedlink a:link,
+.feedlink a:visited {
+	color: var(--feedlink-color);
+}
+
+.feedLinkContainer {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+}
+
+.feedLinkContainer .avatar {
+	width: 20px;
+	height: 20px;
+	flex: 0 0 20px;
+	margin-top: 8px;
+}
+
+.feedLinkContainer .avatar img {
+	width: 20px;
+	height: 20px;
+}
+
+.feedLinkContainer .feedLink {
+	flex: 1 1 auto;
+	font-size: 0.9em;
+	font-weight: 400;
+	line-height: 18px;
+	color: var(--article-title-secondary-color);
+}
+
+.avatar {
+	flex: 0 0 48px;
+}
+
+
+/* ==========================================================================
+   5. Article title, subtitle & dateline
+   ========================================================================== */
+
+.articleTitle {
+	flex: 1 1 auto;
+}
+
+.articleTitle h1 {
+	color: var(--article-title-color);
+	margin: 0 auto 4px;
+	text-align: left;
+	font-size: 1.7em;
+	font-family: ui-serif, "New York", Charter, Georgia, serif;
+}
+
+.articleTitle h1 a,
+.articleTitle h1 a:visited {
+	color: var(--article-title-color);
+}
+
+.articleTitle h2,
+.articleTitle h3 {
+	color: var(--article-title-secondary-color);
+	text-align: left;
+	font-size: 0.8em;
+	margin: 0;
+	font-weight: 500;
+}
+
+.articleTitle h2 a,
+.articleTitle h2 a:visited {
+	color: var(--article-title-secondary-color);
+	font-weight: 500;
+}
+
+.articleSubTitleContainer {
+	display: flex;
+	margin-top: 12px;
+	gap: 10px;
+	color: var(--article-title-secondary-color);
+	font-size: 0.9em;
+	font-weight: 400;
+	text-align: left;
+}
+
+.articleDateline {
+	color: rgba(124, 124, 124, 1);
+	margin-bottom: 5px;
+	text-align: center;
+	padding-top: 1em;
+}
+
+.articleDateline a:link,
+.articleDateline a:visited {
+	color: rgba(166, 166, 166, 1);
+	font-weight: normal;
+	padding-top: 1em;
+	text-align: center;
+}
+
+.articleDatelineTitle {
+	color: rgba(124, 124, 124, 1);
+	margin-bottom: 5px;
+	font-weight: normal;
+}
+
+.articleDatelineTitle a:link,
+.articleDatelineTitle a:visited {
+	color: var(--article-title-color);
+}
+
+.externalLink {
+	margin-bottom: 5px;
+	font-style: italic;
+	width: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	text-align: center;
+}
+
+
+/* ==========================================================================
+   6. Article body
+   ========================================================================== */
+
+.articleBody {
+	margin-top: 20px;
+	line-height: 1.6em;
+}
+
+.articleBody h1,
+.articleBody h2,
+.articleBody h3,
+.articleBody h4,
+.articleBody h5,
+.articleBody h6,
+.articleBody a {
+	font-weight: 500;
+}
+
+
+/* ==========================================================================
+   7. Code
+   ========================================================================== */
 
 code,
 pre {
-  font-family: var(--code-font);
-  font-size: 0.88em;
-}
-
-code {
-  background: var(--code-surface);
-  border-radius: 0.25rem;
-  padding: 0.12em 0.3em;
+	font-family: "SF Mono", Menlo, "Courier New", Courier, monospace;
+	font-size: 0.95em;
+	-webkit-hyphens: none;
+	color: var(--body-code-color);
+	background-color: var(--quote-background);
+	margin: 1.5em 0;
 }
 
 pre {
-  background: var(--code-surface);
-  border-radius: 0.5rem;
-  overflow-x: auto;
-  padding: 1rem;
+	max-width: 100%;
+	padding: 5px;
+	border-radius: 4px;
+	line-height: 1.4286em;
+	overflow: auto;
+	overflow-y: hidden;
+	word-wrap: normal;
+	word-break: normal;
 }
 
 pre code {
-  background: transparent;
-  padding: 0;
+	letter-spacing: -.027em;
+	font-size: 0.9375em;
+}
+
+p code {
+	padding: 0.2em;
+	border-radius: 4px;
+	background-color: var(--quote-background);
+}
+
+
+/* ==========================================================================
+   8. Blockquotes
+   ========================================================================== */
+
+blockquote {
+	margin: 1.5em 0;
+	padding: 1em;
+	border-radius: 4px;
+	font-size: 0.95em;
+	color: var(--quote-color);
+	background-color: var(--quote-background);
+}
+
+blockquote > blockquote {
+	padding-left: 1em;
+	padding-top: 0;
+	padding-bottom: 0;
+	font-style: italic;
+}
+
+blockquote > *:first-child {
+	margin-block-start: 0;
+}
+
+blockquote > *:last-child {
+	margin-block-end: 0;
+}
+
+
+/* ==========================================================================
+   9. Tables
+   Instead of the last-child bits, border-collapse: collapse could have been
+   used. However, then the inter-cell borders overlap the table border,
+   which looks bad.
+   ========================================================================== */
+
+.nnw-overflow {
+	overflow-x: auto;
+}
+
+.nnw-overflow table {
+	margin-bottom: 1px;
+	border-spacing: 0;
+	border: 1px solid var(--table-outer-border);
+	border-radius: 4px;
+	font-size: inherit;
+}
+
+.nnw-overflow table table {
+	margin-bottom: 0;
+	border: none;
+}
+
+.nnw-overflow table[border="0"] {
+	border-width: 0;
+}
+
+.nnw-overflow td,
+.nnw-overflow th {
+	-webkit-hyphens: none;
+	word-break: normal;
+	border: 1px solid var(--table-cell-border-color);
+	border-top: none;
+	border-left: none;
+	padding: 10px;
+	text-align: left;
+}
+
+.nnw-overflow tr :is(td, th):last-child {
+	border-right: none;
+}
+
+.nnw-overflow :is(thead, tbody, tfoot):last-child > tr:last-child :is(td, th) {
+	border-bottom: none;
+}
+
+.nnw-overflow td pre {
+	border: none;
+	padding: 0;
+}
+
+
+/* ==========================================================================
+   10. Media (images, video, iframes, figures)
+   ========================================================================== */
+
+img {
+	border-radius: 4px;
 }
 
 img,
+figure,
 video,
-audio,
-iframe {
-  height: auto;
-  max-width: 100%;
+div,
+object {
+	max-width: 100%;
+	height: auto !important;
+	margin: 0 auto 4px;
 }
 
+/* Must follow the group above so its vertical margins win */
 figure {
-  margin-inline: 0;
+	margin-top: 1em;
+	margin-bottom: 1em;
 }
 
 figcaption {
-  color: var(--muted);
-  font-family: var(--display-font);
-  font-size: 0.82em;
-  margin-top: 0.45rem;
+	font-size: 14px;
+	line-height: 1.3em;
 }
 
-.nnw-overflow {
-  overflow-x: auto;
+video {
+	width: 100% !important;
 }
 
-table {
-  border-collapse: collapse;
-  font-family: var(--display-font);
-  font-size: 0.9em;
-  width: 100%;
+iframe {
+	max-width: 100%;
+	margin: 0 auto;
 }
 
-th,
-td {
-  border-bottom: 1px solid var(--rule);
-  padding: 0.6rem 0.75rem;
-  text-align: left;
-  vertical-align: top;
+iframe.nnw-constrained {
+	max-height: 50vw;
 }
 
-.article-footer {
-  border-top: 1px solid var(--rule);
-  font-family: var(--display-font);
-  font-size: 0.85em;
-  margin-top: 3rem;
-  padding-top: 1.25rem;
+.iframeWrap {
+	position: relative;
+	display: block;
+	padding-top: 56.25%;
 }
 
-.newsfoot-footnote-popover,
+.iframeWrap iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100% !important;
+	width: 100% !important;
+}
+
+
+/* ==========================================================================
+   11. Feed-specific tweaks
+   ========================================================================== */
+
+.feedbin--article-wrap {
+	border-top: 1px solid var(--header-table-border-color);
+}
+
+/* Hide the external link at the bottom of Daring Fireball posts */
+.x-netnewswire-hide {
+	display: none;
+}
+
+/* See removeWpSmiley; kept in case a wp-smiley is encountered without alt text */
+.wp-smiley {
+	height: 1em;
+	max-height: 1em;
+}
+
+
+/* ==========================================================================
+   12. Twitter
+   ========================================================================== */
+
+.twitterAvatar {
+	vertical-align: middle;
+	border-radius: 4px;
+	height: 1.7em;
+	width: 1.7em;
+}
+
+.twitterUsername {
+	display: inline-block;
+	vertical-align: middle;
+	line-height: 1.2;
+	margin-left: 4px;
+}
+
+.twitterScreenName,
+.twitterTimestamp {
+	font-size: 66%;
+}
+
+
+/* ==========================================================================
+   13. Ad & share-button blocking
+   ========================================================================== */
+
+iframe[src*="feedads"],
+iframe[src*="doubleclick"],
+iframe[src*="plusone.google"],
+
+a[href*=".ads."],
+a[href*="feedads"],
+a[href*="doubleclick"],
+a[href*="//ads."],
+a[href*="api.tweetmeme"],
+a[href*="delicious.com/post?"],
+a[href*="digg.com/submit?"],
+a[href*="google.com/bookmarks/mark?"],
+a[href*="posterous.com/share?"],
+a[href*="tumblr.com/share?"],
+a[href*="linkedin.com/shareArticle?"],
+a[href*="facebook.com/share.php?"],
+a[href*="http://twitter.com/home?"],
+a[href*="addtoany.com/share_save"],
+
+img[src*=".ads."],
+img[src*="//ads."],
+img[src*="doubleclick"],
+img[src*="feedads"],
+img[src*="feedburner"],
+img[src*="feedblitz"],
+img[src*="share-buttons"] {
+	display: none !important;
+}
+
+
+/* ==========================================================================
+   14. Newsfoot footnotes
+   ========================================================================== */
+
+/* --- Structure --- */
+
+.newsfoot-footnote-container {
+	position: relative;
+	display: inline-block;
+	z-index: 9999;
+}
+
+.newsfoot-footnote-popover {
+	position: absolute;
+	display: block;
+	margin: 1em;
+	top: 0.75em;
+	left: calc(-1 * (50vw - 1em));
+	right: calc(-1 * (50vw - 1em));
+	max-width: none;
+	border-radius: 0.3em;
+	box-sizing: border-box;
+}
+
 .newsfoot-footnote-popover-arrow {
-  background: var(--canvas);
-  border: 1px solid var(--rule);
-  color: var(--text);
+	content: '';
+	display: block;
+	position: absolute;
+	top: -0.5em;
+	left: calc(50% - 0.5em);
+	width: 1em;
+	height: 1em !important;
+	transform: rotate(45deg);
+	z-index: 0;
 }
 
-@media (max-width: 34rem) {
-  body {
-    padding: 1.1rem;
-  }
+.newsfoot-footnote-popover-inner {
+	position: relative;
+	z-index: 1;
+	padding: 1em;
+	border-radius: calc(0.3em - 1px);
+}
 
-  h1 {
-    font-size: 2rem;
-  }
+.newsfoot-footnote-popover-inner :first-child {
+	margin-top: 0;
+}
+
+.newsfoot-footnote-popover-inner :last-child {
+	margin-bottom: 0;
+}
+
+.newsfoot-footnote-popover .reversefootnote,
+.newsfoot-footnote-popover .footnoteBackLink,
+.newsfoot-footnote-popover .footnote-return,
+.newsfoot-footnote-popover a[href*='#fn'] {
+	display: none;
+}
+
+sup[id^='fn'] {
+	vertical-align: baseline;
+}
+
+a.footnote {
+	display: inline-block;
+	position: relative;
+	top: -0.1em;
+	min-width: 1em;
+	padding: 0.05em 0.75em;
+	border-radius: 1em;
+	font-size: 0.8em;
+	line-height: 1em;
+	text-align: center;
+	text-decoration: none;
+}
+
+/* --- Theme (light / default) --- */
+
+.newsfoot-footnote-popover {
+	padding: 1px;
+	color: black;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5), 0 3px 6px rgba(0, 0, 0, 0.25);
+}
+
+.newsfoot-footnote-popover-arrow {
+	border: 1px solid #ccc;
+}
+
+body a.footnote,
+body a.footnote:visited,
+.newsfoot-footnote-popover + a.footnote:hover {
+	color: white;
+}
+
+/* --- Theme (dark) --- */
+
+@media screen and (prefers-color-scheme: dark) {
+	.newsfoot-footnote-popover {
+		color: rgb(224, 224, 224);
+	}
+
+	.newsfoot-footnote-popover-arrow {
+		border: 1px solid #444;
+	}
+}
+
+
+/* ==========================================================================
+   15. iOS
+   ========================================================================== */
+
+@supports (-webkit-touch-callout: none) {
+
+	:root {
+		font-family: -apple-system;
+		font-size: [[font-size]]px;
+		--primary-accent-color: #086AEE;
+		--secondary-accent-color: #086AEE;
+		--block-quote-border-color: rgba(8, 106, 238, 0.75);
+	}
+
+	@media (prefers-color-scheme: dark) {
+		:root {
+			--primary-accent-color: #2D80F1;
+			--secondary-accent-color: #5E9EF4;
+			--block-quote-border-color: rgba(94, 158, 244, 0.75);
+			--header-table-border-color: rgba(255, 255, 255, 0.2);
+		}
+	}
+
+	body {
+		margin-top: 3px;
+		margin-bottom: 20px;
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+
+	body a,
+	body a:visited,
+	body a * {
+		color: var(--secondary-accent-color);
+	}
+
+	body .header {
+		font: -apple-system-body;
+		font-size: [[font-size]]px;
+	}
+
+	body .header a:link,
+	body .header a:visited {
+		color: var(--primary-accent-color);
+	}
+
+	.feedHeader {
+		margin-bottom: 20px;
+	}
+
+	.feedHeaderDate {
+		margin-top: 20px;
+	}
+
+	.nnw-overflow table {
+		border: none;
+	}
+
+	.activityIndicatorWrap {
+		position: relative;
+	}
+
+	.activityIndicator {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		z-index: 1;
+		width: 64px;
+		height: 64px;
+		transform: translate(-50%, -50%);
+	}
+}
+
+
+/* ==========================================================================
+   16. macOS
+   ========================================================================== */
+
+@supports not (-webkit-touch-callout: none) {
+
+	:root {
+		--accent-color: rgba(8, 106, 238, 1);
+		--block-quote-border-color: rgba(8, 106, 238, .50);
+	}
+
+	@media (prefers-color-scheme: dark) {
+		:root {
+			--accent-color: rgba(94, 158, 244, 1);
+			--block-quote-border-color: rgba(94, 158, 244, .50);
+			--header-table-border-color: rgba(255, 255, 255, 0.1);
+		}
+	}
+
+	body {
+		margin-top: 20px;
+		margin-bottom: 64px;
+		padding-left: 48px;
+		padding-right: 48px;
+		font-family: -apple-system;
+	}
+
+	body a,
+	body a:visited,
+	body a * {
+		color: var(--accent-color);
+	}
+
+	.smallText   { font-size: 14px; }
+	.mediumText  { font-size: 16px; }
+	.largeText   { font-size: 18px; }
+	.xlargeText  { font-size: 20px; }
+	.xxlargeText { font-size: 22px; }
 }
