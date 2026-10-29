@@ -5,7 +5,7 @@
 :root {
 	color-scheme: light dark;
 
-	--body-background: #FFFEFB;
+	--body-background: #FEFEFF;
 	--body-color: #666;
 	--body-code-color: #666;
 	--header-color: rgba(0, 0, 0, 0.3);
@@ -17,7 +17,7 @@
 	--article-date-color: rgba(0, 0, 0, 0.3);
 	--table-outer-border: #e0e0e0;
 	--table-cell-border-color: #e7e7e7;
-	--quote-background: #F8F5F0;
+	--quote-background: #F7F7FB;
 	--quote-color: #626262;
 }
 
@@ -224,6 +224,11 @@ body .header a:visited {
 	font-size: 0.9em;
 	font-weight: 400;
 	text-align: left;
+	align-items: center;
+}
+
+.articleSubTitleDate {
+    white-space: nowrap;
 }
 
 .articleDateline {
@@ -259,7 +264,6 @@ body .header a:visited {
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
-	text-align: center;
 }
 
 
@@ -299,7 +303,7 @@ pre {
 
 pre {
 	max-width: 100%;
-	padding: 5px;
+	padding: 1em;
 	border-radius: 4px;
 	line-height: 1.4286em;
 	overflow: auto;
